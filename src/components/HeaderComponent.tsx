@@ -1,4 +1,5 @@
 import React, { FC, useRef, useState } from "react";
+import SearchPopupComponent from "./SearchPopupComponent";
 const HeaderComponent: FC<{}> = () => {
   const searchPopupRef = useRef(null);
   const [activeMenu, setActiveMenu] = useState(null);
@@ -71,7 +72,7 @@ const HeaderComponent: FC<{}> = () => {
                       className="user-items search-item pe-3"
                       onClick={togglePopup}
                     >
-                      <a href="/" className="search-button">
+                      <a href="#" className="search-button">
                         <i className="icon icon-search"></i>
                       </a>
                     </li>
@@ -359,76 +360,7 @@ const HeaderComponent: FC<{}> = () => {
         </div>
       </header>
       {isVisible && (      
-      <div
-        className="search-popup is-visible"
-        ref={searchPopupRef}
-        onClick={handlePopupClick}
-      >
-        <div className="search-popup-container">
-          <form
-            role="search"
-            method="get"
-            className="search-form"
-            action=""
-            onClick={handlePopupClick}
-          >
-            <input
-              type="search"
-              id="search-form"
-              className="search-field"
-              placeholder="Type and press enter"
-              value={inputValue}
-              onChange={handleChange}
-              name="s"
-            />
-            <button type="submit" className="search-submit">
-              <a href="/">
-                <i className="icon icon-search"></i>
-              </a>
-            </button>
-          </form>
-
-          <h5 className="cat-list-title">Browse Categories</h5>
-
-          <ul className="cat-list">
-            <li className="cat-list-item">
-              <a href="shop.html" title="Men Jackets">
-                Men Jackets
-              </a>
-            </li>
-            <li className="cat-list-item">
-              <a href="shop.html" title="Fashion">
-                Fashion
-              </a>
-            </li>
-            <li className="cat-list-item">
-              <a href="shop.html" title="Casual Wears">
-                Casual Wears
-              </a>
-            </li>
-            <li className="cat-list-item">
-              <a href="shop.html" title="Women">
-                Women
-              </a>
-            </li>
-            <li className="cat-list-item">
-              <a href="shop.html" title="Trending">
-                Trending
-              </a>
-            </li>
-            <li className="cat-list-item">
-              <a href="shop.html" title="Hoodie">
-                Hoodie
-              </a>
-            </li>
-            <li className="cat-list-item">
-              <a href="shop.html" title="Kids">
-                Kids
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
+     <SearchPopupComponent searchPopupRef={searchPopupRef} inputValue={inputValue} handleChange={handleChange} handlePopupClick={handlePopupClick}/>
       )}                      
     </>
   );

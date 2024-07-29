@@ -1,6 +1,6 @@
 import React from "react";
 const HomeCopmponent: React.FC <{ 
-    subsValue: any;
+    subsValue: string;
     handleSubsChange: any; 
   }> = ({
     subsValue,
@@ -8,7 +8,7 @@ const HomeCopmponent: React.FC <{
   }) => {
     return (
         <>
-        <section id="billboard" className="overflow-hidden">
+      <section id="billboard" className="overflow-hidden">
         <button className="button-prev">
           <i className="icon icon-chevron-left"></i>
         </button>
