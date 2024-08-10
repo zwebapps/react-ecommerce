@@ -1,5 +1,6 @@
 import React, { FC, useRef, useState } from "react";
 import SearchPopupComponent from "./SearchPopupComponent";
+import { Link } from "react-router-dom";
 const HeaderComponent: FC<{}> = () => {
   const searchPopupRef = useRef(null);
   const [activeMenu, setActiveMenu] = useState(null);
@@ -11,7 +12,6 @@ const HeaderComponent: FC<{}> = () => {
   };
 
   const togglePopup = () => {
-    debugger;
     setIsVisible(!isVisible);
   };
 
@@ -104,14 +104,13 @@ const HeaderComponent: FC<{}> = () => {
                           }`}
                           onMouseOver={() => toggleDropdown("home")}
                         >
-                          <a
-                            href="index.html"
-                            className="item-anchor active d-flex align-item-center"
-                            data-effect="Home"
-                            onMouseEnter={() => toggleDropdown("home")}
-                          >
-                            Home<i className="icon icon-chevron-down"></i>
-                          </a>
+                          <Link to="/"  
+                          className="item-anchor active d-flex align-item-center"
+                          data-effect="Home"
+                          onMouseEnter={() => toggleDropdown("home")}>
+                            Home<i className="icon icon-chevron-down"></i>                           
+                          </Link>
+                     
                           <ul
                             className="submenu"
                             style={{
@@ -140,14 +139,13 @@ const HeaderComponent: FC<{}> = () => {
                             activeMenu === "about" ? "active" : ""
                           }`}
                         >
-                          <a
-                            href="about.html"
+
+                          <Link to="/about"  
                             className="item-anchor"
                             data-effect="About"
-                            onMouseOver={() => toggleDropdown("about")}
-                          >
-                            About
-                          </a>
+                            onMouseEnter={() => toggleDropdown("about")}>
+                             About<i className="icon icon-chevron-down"></i>                           
+                           </Link>
                         </li>
 
                         <li
@@ -155,14 +153,14 @@ const HeaderComponent: FC<{}> = () => {
                             activeMenu === "shop" ? "active" : ""
                           }`}
                         >
-                          <a
-                            href="shop.html"
+                          <Link
+                            to="products"
                             className="item-anchor d-flex align-item-center"
                             data-effect="Shop"
                             onMouseOver={() => toggleDropdown("shop")}
                           >
                             Shop<i className="icon icon-chevron-down"></i>
-                          </a>
+                          </Link>
                           <ul
                             className="submenu"
                             style={{
@@ -254,10 +252,15 @@ const HeaderComponent: FC<{}> = () => {
                               </a>
                             </li>
                             <li>
-                              <a href="login.html" className="item-anchor">
+                              <Link to="/login" className="item-anchor">
                                 Login
-                                <span className="text-primary"> (PRO)</span>
-                              </a>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to="/signup" className="item-anchor">
+                                Signup
+                                <span className="text-primary"> </span>
+                              </Link>
                             </li>
                             <li>
                               <a href="faqs.html" className="item-anchor">
@@ -289,7 +292,7 @@ const HeaderComponent: FC<{}> = () => {
                           }`}
                         >
                           <a
-                            href="blog.html"
+                            href="/blog"
                             className="item-anchor d-flex align-item-center"
                             data-effect="Blog"
                             onMouseOver={() => toggleDropdown("blog")}
@@ -342,7 +345,7 @@ const HeaderComponent: FC<{}> = () => {
                           }`}
                         >
                           <a
-                            href="contact.html"
+                            href="/contactus"
                             className="item-anchor"
                             data-effect="Contact"
                             onMouseOver={() => toggleDropdown("contact")}

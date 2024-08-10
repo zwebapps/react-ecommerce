@@ -1,11 +1,11 @@
-import React from "react";
-const HomeCopmponent: React.FC <{ 
-    subsValue: string;
-    handleSubsChange: any; 
-  }> = ({
-    subsValue,
-    handleSubsChange
-  }) => {
+import React, { useState } from "react";
+const HomeCopmponent: React.FC <{}> = () => {
+    const [subsValue, setSubsValue] = useState('');
+
+  const handleSubsChange = (event: any) => {
+    setSubsValue(event.target.value);
+  };
+
     return (
         <>
       <section id="billboard" className="overflow-hidden">
